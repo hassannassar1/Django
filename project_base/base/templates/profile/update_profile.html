@@ -1,0 +1,106 @@
+{% extends 'profile/main.html' %}s
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<div dir="ltr">
+<div class="container">
+    <div class="signup">
+
+    <div class="col-md-9" >
+        <form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+            <h4 class="auth-header">Update your information</h4>
+					<!-- Start of User Form  Update -->
+					
+					<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							{{ user_form.username|as_crispy_field}}
+						</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								{{ user_form.email|as_crispy_field}}
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								{{ user_form.password1|as_crispy_field}}
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								{{ user_form.password2|as_crispy_field}}
+							</div>
+						</div>
+					</div>
+				<!-- End of User Form  Update -->
+			 
+				<!-- Start of  Profile Form  Update -->
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+								{{ profile_form.image|as_crispy_field}}
+						</div>
+					</div>
+				</div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{ profile_form.first_name|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                          {{ profile_form.last_name|as_crispy_field}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                   {{ profile_form.bio|as_crispy_field}}
+                </div>
+                <div class="row">
+                   
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{ profile_form.phone_number|as_crispy_field}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                           {{ profile_form.address|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                             {{ profile_form.address_details|as_crispy_field}}
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                           {{ profile_form.gender|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{ profile_form.slug|as_crispy_field}}
+                    </div>
+                    </div>
+                </div>
+                <!-- End of  Profile Form  Update -->
+            <div class="buttons-w"><button type="submit" class="btn btn-success">Update </button></div>
+            
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+
+
+
+{% endblock body %}

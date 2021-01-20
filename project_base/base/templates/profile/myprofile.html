@@ -1,0 +1,72 @@
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<div class="job_details_area">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="job_details_header">
+                <div class="single_jobs white-bg d-flex justify-content-between">
+                    <div class="jobs_left d-flex align-items-center">
+                        <div >
+								{% if user.profile.image %}
+										<img class="img-circle" src="{{user.profile.image.url}}" alt="" width="100" height="100">
+								{% else %}
+										<img class="img-circle" src="{% static 'img/doctors/doctors-3.jpg' %}" alt="" width="100" height="100">
+								{% endif %}
+                        </div>
+                        <div class="jobs_conetent">
+                            <a href="#" ><h4>{{user.first_name}} {{user.last_name}}</h4></a>
+                            <div class="links_locat d-flex align-items-center">
+                                <div class="location">
+                                    <p> <i class="fa fa-map-marker"></i> {{user.profile.address_details}}, {{user.profile.address}} </p>
+                                </div>
+                                <div class="location">
+                                    <p> <i class="fa fa-clock-o"></i>  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="descript_wrap white-bg">
+                <div class="single_wrapp">
+                    <h3></h3>
+					<p> {{user.profile.bio}}</p>
+                </div>
+				
+			</div>	
+		
+        </div>
+        <div class="col-lg-4">
+            <div class="job_sumary">
+                <div class="job_content">
+                    <ul>
+                        <li>  Joined : <span style="color: blue;">{{user.profile.joined|date:'d-m-Y'}} </span></li>
+                        <li> Phone number  : <span style="color: blue;">{{user.profile.phone_number}}</span></li>
+                    </ul>
+                    
+                </div>
+            </div>
+<!--		         
+		<div class="share_wrap d-flex">
+                <span>شارك الصفحه :</span>
+                <ul>
+                    <li><a href="{{user.profile.facebook}}"> <i class="fa fa-facebook"></i></a> </li>
+                    <li><a href="{{user.profile.google}}"> <i class="fa fa-google-plus"></i></a> </li>
+                    <li><a href="{{user.profile.twitter}}"> <i class="fa fa-twitter"></i></a> </li>
+                </ul>
+            </div>
+			-->
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock body %}
